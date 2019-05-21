@@ -29,4 +29,23 @@ public class Conexion {
         }
         return con;
     }
+    
+    public static void crearNuevaTabla() {
+        String url = "jdbc:sqlite:alumnos.db";
+
+        String sql = "CREATE TABLE paises (\n"
+                + " id_pais integer PRIMARY KEY, \n"
+                + " nombre_pais text \n"
+                + ");";
+
+        String sql2 = "DROP TABLE IF EXISTS paises";
+
+        try (Connection conn = DriverManager.getConnection(url);
+                Statement stmt = conn.createStatement()) {
+            stmt.execute(sql2);
+            stmt.execute(sql);
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
 }
