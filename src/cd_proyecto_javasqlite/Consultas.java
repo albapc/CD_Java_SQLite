@@ -74,4 +74,17 @@ public class Consultas {
             System.out.println("ERROR ---> " + ex);
         }
     }
+
+    public void update(String nombre, int nota, int referencia, int id_pais) {
+        try {
+//            //Declarar consulta
+            Conexion.s = Conexion.con.createStatement();
+//            //Ejecutar consulta
+            Conexion.s.executeUpdate("update alumnos set nombre='" + nombre + "',nota=" + nota
+                    + ",id_pais=" + id_pais + " where referencia=" + referencia);
+
+        } catch (SQLException ex) {
+            System.out.println("ERROR ---> " + ex);
+        }
+    }
 }
