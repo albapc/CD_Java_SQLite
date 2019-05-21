@@ -29,7 +29,7 @@ public class Conexion {
         }
         return con;
     }
-    
+
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
 

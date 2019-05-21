@@ -52,7 +52,12 @@ public class Metodos {
         int id_pais = 0;
 
         do {
-            id_pais = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el id del país del alumno:"));
+            try {
+                id_pais = Integer.parseInt(JOptionPane.showInputDialog("Introduzca el id del país del alumno:"));
+            } catch (NumberFormatException nfe) {
+                JOptionPane.showMessageDialog(null, "ERROR: Introduzca solo numeros.");
+            }
+            
         } while (!validarPais(id_pais));
 
         return id_pais;
