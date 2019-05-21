@@ -192,6 +192,7 @@ public class Paleta extends javax.swing.JFrame {
         } else {
             query.insert(referencia, Metodos.pedirNombre(), Metodos.pedirNota(), Metodos.pedirIdPais());
             jTextArea1.setText("Se ha añadido 1 fila");
+            actualizarTabla();
         }
     }//GEN-LAST:event_bInsertActionPerformed
 
@@ -213,6 +214,10 @@ public class Paleta extends javax.swing.JFrame {
     }
 
     private void bSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelectAllActionPerformed
+        actualizarTabla();
+    }//GEN-LAST:event_bSelectAllActionPerformed
+
+    private void actualizarTabla() {
         DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
 
         if (dtm.getRowCount() > 1) {
@@ -233,8 +238,8 @@ public class Paleta extends javax.swing.JFrame {
             }
             contador++;
         }
-    }//GEN-LAST:event_bSelectAllActionPerformed
-
+    }
+    
     private void bDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteActionPerformed
         int cont = coincidencias();
         if (cont == 0) {
@@ -242,10 +247,12 @@ public class Paleta extends javax.swing.JFrame {
         } else {
             query.delete(referencia);
             jTextArea1.setText("Se ha(n) eliminado " + cont + " fila(s)");
+            actualizarTabla();
         }
     }//GEN-LAST:event_bDeleteActionPerformed
 
     private void bSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelectActionPerformed
+        
         DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
 
         if (dtm.getRowCount() > 1) {
@@ -287,6 +294,9 @@ public class Paleta extends javax.swing.JFrame {
         } else {
             query.update(Metodos.pedirNombre(), Metodos.pedirNota(), referencia, Metodos.pedirIdPais());
             jTextArea1.setText("Se ha(n) modificado " + cont + " fila(s)");
+            actualizarTabla();
+//        } catch (SQLException ex) {
+//            System.out.println("ERROR ---> " + ex);
         }
     }//GEN-LAST:event_bUpdateActionPerformed
 
