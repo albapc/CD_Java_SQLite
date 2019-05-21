@@ -45,7 +45,7 @@ public class Consultas {
         }
         return aux;
     }
-    
+
     public void insert(int referencia, String nombre, int nota, int id_pais) {
         try {
             //Declarar consulta
@@ -58,6 +58,18 @@ public class Consultas {
             System.out.println("ERROR CLAVE REPETIDA ---> " + ex);
             //En caso de que repitamos la primary key volvera a lanzar el metodo
             insert(Metodos.pedirReferencia(), Metodos.pedirNombre(), Metodos.pedirNota(), Metodos.pedirIdPais());
+        } catch (SQLException ex) {
+            System.out.println("ERROR ---> " + ex);
+        }
+    }
+
+    public void delete(int referencia) {
+        try {
+            //Declarar consulta
+            Conexion.s = Conexion.con.createStatement();
+            //Ejecutar consulta
+            Conexion.s.executeUpdate("delete from alumnos where referencia=" + referencia);
+
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
         }
