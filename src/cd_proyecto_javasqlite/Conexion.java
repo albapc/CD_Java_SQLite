@@ -1,6 +1,7 @@
 package cd_proyecto_javasqlite;
 
 import java.sql.Connection;
+import java.sql.DatabaseMetaData;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -43,6 +44,26 @@ public class Conexion {
         return con;
     }
 
+    /**
+     * Método para crear una nueva base de datos, introduciendo el nombre de esta
+     * 
+     * @param nombreBD
+     */
+    public static void crearNuevaBD(String nombreBD) {
+        String url = "jdbc:sqlite:" + nombreBD;
+        
+        try (Connection con = DriverManager.getConnection(url)) {
+            if (con != null) {
+                DatabaseMetaData meta = con.getMetaData();
+                System.out.println("El nombre del driver es " + meta.getDriverName());
+                System.out.println("Se ha creado una nueva base de datos.");
+            }
+ 
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
     /**
      * Método estático "crearNuevaTabla": establece un enlace con nuestra base
      * de datos y ejecuta la secuencia sql que le indiquemos para que cree una
