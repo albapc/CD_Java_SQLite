@@ -3,6 +3,10 @@ package cd_proyecto_javasqlite;
 import java.sql.SQLException;
 import javax.swing.table.DefaultTableModel;
 
+/**
+ *
+ * @author aperezcesar
+ */
 public class Paleta extends javax.swing.JFrame {
 
     /**
@@ -11,6 +15,9 @@ public class Paleta extends javax.swing.JFrame {
     Consultas query = new Consultas();
     int referencia;
 
+    /**
+     * Ejecuta la GUI
+     */
     public Paleta() {
         initComponents();
 
@@ -196,6 +203,14 @@ public class Paleta extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_bInsertActionPerformed
 
+    /**
+     * Método que cuenta el número de filas que coinciden con la referencia
+     * introducida por teclado para saber si ya existe esa referencia en la base
+     * de datos o no. Devuelve la variable contador con el número de
+     * coincidencias.
+     *
+     * @return cont
+     */
     private int coincidencias() {
         //Variable para almacenar nº de coincidencias
         int cont = 0;
@@ -217,6 +232,12 @@ public class Paleta extends javax.swing.JFrame {
         actualizarTabla();
     }//GEN-LAST:event_bSelectAllActionPerformed
 
+    /**
+     * Muestra todos los datos recopilados de la tabla "alumnos": referencia,
+     * nombre, nota e id_pais. Se invoca para actualizar los datos de esta una
+     * vez se haya realizado una inserción, actualización, borrado, etc. de la
+     * tabla.
+     */
     private void actualizarTabla() {
         DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
 
@@ -239,7 +260,7 @@ public class Paleta extends javax.swing.JFrame {
             contador++;
         }
     }
-    
+
     private void bDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bDeleteActionPerformed
         int cont = coincidencias();
         if (cont == 0) {
@@ -252,7 +273,7 @@ public class Paleta extends javax.swing.JFrame {
     }//GEN-LAST:event_bDeleteActionPerformed
 
     private void bSelectActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelectActionPerformed
-        
+
         DefaultTableModel dtm = (DefaultTableModel) jTable2.getModel();
 
         if (dtm.getRowCount() > 1) {
@@ -295,8 +316,6 @@ public class Paleta extends javax.swing.JFrame {
             query.update(Metodos.pedirNombre(), Metodos.pedirNota(), referencia, Metodos.pedirIdPais());
             jTextArea1.setText("Se ha(n) modificado " + cont + " fila(s)");
             actualizarTabla();
-//        } catch (SQLException ex) {
-//            System.out.println("ERROR ---> " + ex);
         }
     }//GEN-LAST:event_bUpdateActionPerformed
 

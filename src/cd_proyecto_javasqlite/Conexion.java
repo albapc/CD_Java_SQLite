@@ -6,12 +6,25 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
+/**
+ *
+ * @author aperezcesar
+ */
 public class Conexion {
 
     static Connection con = null;
     static Statement s = null;
     static ResultSet rs = null;
 
+    /**
+     * Método conectar, mediante el cual establecemos la conexión que servirá de
+     * enlace entre la base de datos y nuestro programa. Si la conexión ha sido
+     * un éxito, saltará un mensaje conforme se ha establecido la conexión y un
+     * "true", de lo contrario, saltará la excepción con un mensaje de error y
+     * un "false"
+     *
+     * @return con
+     */
     public static Connection conectar() {
         boolean conectado = false;
         try {
@@ -30,6 +43,13 @@ public class Conexion {
         return con;
     }
 
+    /**
+     * Método estático "crearNuevaTabla": establece un enlace con nuestra base
+     * de datos y ejecuta la secuencia sql que le indiquemos para que cree una
+     * tabla nueva con sus respectivos parámetros. Si surge un error durante la
+     * conexión saltará una excepción con el mensaje de error.
+     *
+     */
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
 
