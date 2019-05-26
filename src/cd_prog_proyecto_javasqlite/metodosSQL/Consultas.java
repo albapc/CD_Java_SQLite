@@ -17,7 +17,7 @@ public class Consultas {
      * método devuelve dicho array. De ocurrir algún error saltaría una
      * excepción con un mensaje de error.
      *
-     * @return aux
+     * @return aux 
      */
     public ArrayList selectAlumnos() {
         ArrayList<Alumno> aux = new ArrayList();
