@@ -807,7 +807,7 @@ public class Paleta extends javax.swing.JFrame {
             if (selected2.toString().equalsIgnoreCase("nombre")) {
                 //Si no encuentra la referencia, salta la excepcion y no deja actualizar la base de datos
                 int cont = Metodos.buscarCoincidencias(Integer.parseInt(cTexto1.getText()));
-                
+
                 if (cTexto1.getText().isEmpty() || cTexto2.getText().isEmpty()) {
                     jTextArea2.setText("ERROR: Rellene todos los campos");
                 } else if (!Metodos.validarNombre(cTexto2.getText())) {
@@ -825,8 +825,8 @@ public class Paleta extends javax.swing.JFrame {
             } else if (selected2.toString().equalsIgnoreCase("nota")) {
                 try {
                     int cont = Metodos.buscarCoincidencias(Integer.parseInt(cTexto1.getText()));
-                    
-                    if(cTexto1.getText().isEmpty() || cTexto3.getText().isEmpty()) {
+
+                    if (cTexto1.getText().isEmpty() || cTexto3.getText().isEmpty()) {
                         jTextArea2.setText("ERROR: Rellene todos los campos");
                     } else if (!Metodos.validarNota(Integer.parseInt(cTexto3.getText()))) {
                         jTextArea2.setText("ERROR: Introduzca una nota válida (del 1 al 10)");
@@ -847,8 +847,8 @@ public class Paleta extends javax.swing.JFrame {
             } else if (selected2.toString().equalsIgnoreCase("id_pais")) {
                 try {
                     int cont = Metodos.buscarCoincidencias(Integer.parseInt(cTexto1.getText()));
-                    
-                    if(cTexto1.getText().isEmpty() || cTexto4.getText().isEmpty()) {
+
+                    if (cTexto1.getText().isEmpty() || cTexto4.getText().isEmpty()) {
                         jTextArea2.setText("ERROR: Rellene todos los campos");
                     } else if (!Metodos.validarPais(Integer.parseInt(cTexto4.getText()))) {
                         jTextArea2.setText("ERROR: Introduzca una ID válida");
@@ -868,14 +868,14 @@ public class Paleta extends javax.swing.JFrame {
             } else if (selected2.toString().equalsIgnoreCase("todo")) {
                 try {
                     int cont = Metodos.buscarCoincidencias(Integer.parseInt(cTexto1.getText()));
-                    
-                    if(cTexto1.getText().isEmpty() || cTexto2.getText().isEmpty() || cTexto3.getText().isEmpty() || cTexto4.getText().isEmpty()) {
+
+                    if (cTexto1.getText().isEmpty() || cTexto2.getText().isEmpty() || cTexto3.getText().isEmpty() || cTexto4.getText().isEmpty()) {
                         jTextArea2.setText("ERROR: Rellene todos los campos");
                     } else if (!Metodos.validarNombre(cTexto2.getText())) {
                         jTextArea2.setText("ERROR: Introduzca un nombre válido");
-                    } else if(!Metodos.validarNota(Integer.parseInt(cTexto3.getText()))) {
+                    } else if (!Metodos.validarNota(Integer.parseInt(cTexto3.getText()))) {
                         jTextArea2.setText("ERROR: Introduzca una nota válida (del 1 al 10)");
-                    } else if(!Metodos.validarPais(Integer.parseInt(cTexto4.getText()))) {
+                    } else if (!Metodos.validarPais(Integer.parseInt(cTexto4.getText()))) {
                         jTextArea2.setText("ERROR: Introduzca una ID válida");
                     } else if (cont == 0) {
                         card.show(getContentPane(), "card1"); //muestra la primera ventana

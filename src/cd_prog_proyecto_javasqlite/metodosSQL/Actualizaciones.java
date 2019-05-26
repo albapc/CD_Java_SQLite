@@ -1,4 +1,3 @@
-
 package cd_prog_proyecto_javasqlite.metodosSQL;
 
 import java.sql.SQLException;
@@ -8,11 +7,11 @@ import java.sql.SQLException;
  * @author Alba
  */
 public class Actualizaciones {
-    
+
     /**
-     * En este método el usuario puede actualizar todas las filas de la tabla que
-     * desee introduciendo la referencia del alumno y a continuación los nuevos
-     * datos actualizados. En caso de error saltaría una excepción con el
+     * En este método el usuario puede actualizar todas las filas de la tabla
+     * que desee introduciendo la referencia del alumno y a continuación los
+     * nuevos datos actualizados. En caso de error saltaría una excepción con el
      * mensaje de error.
      *
      * @param nombre: nombre del alumno
@@ -36,7 +35,7 @@ public class Actualizaciones {
      * En este método el usuario puede actualizar las filas de la tabla que
      * desee introduciendo la referencia del alumno y a continuación el nuevo
      * nombre. En caso de error saltaría una excepción con el mensaje de error.
-     * 
+     *
      * @param nombre: nombre del alumno
      * @param referencia: referencia del alumno
      */
@@ -50,12 +49,12 @@ public class Actualizaciones {
             System.out.println("ERROR ---> " + ex);
         }
     }
-    
+
     /**
      * En este método el usuario puede actualizar las filas de la tabla que
      * desee introduciendo la referencia del alumno y a continuación la nueva
      * nota. En caso de error saltaría una excepción con el mensaje de error.
-     * 
+     *
      * @param nota: nota del alumno
      * @param referencia: referencia del alumno
      */
@@ -69,12 +68,13 @@ public class Actualizaciones {
             System.out.println("ERROR ---> " + ex);
         }
     }
-    
+
     /**
      * En este método el usuario puede actualizar las filas de la tabla que
-     * desee introduciendo la referencia del alumno y a continuación la nueva
-     * id del pais. En caso de error saltaría una excepción con el mensaje de error.
-     * 
+     * desee introduciendo la referencia del alumno y a continuación la nueva id
+     * del pais. En caso de error saltaría una excepción con el mensaje de
+     * error.
+     *
      * @param id_pais: id del pais del alumno
      * @param referencia: referencia del alumno
      */

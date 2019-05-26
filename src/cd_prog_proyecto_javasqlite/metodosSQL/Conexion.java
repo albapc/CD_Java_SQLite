@@ -41,17 +41,18 @@ public class Conexion {
             System.out.println("ERROR DE CONEXION ---> " + ex);
             System.out.println(conectado);
         }
-        return con; 
+        return con;
     }
 
     /**
-     * Método para crear una nueva base de datos, introduciendo el nombre de esta
-     * 
+     * Método para crear una nueva base de datos, introduciendo el nombre de
+     * esta
+     *
      * @param nombreBD nombre de la base de datos a crear
      */
     public static void crearNuevaBD(String nombreBD) {
         String url = "jdbc:sqlite:" + nombreBD;
-        
+
         try (Connection con = DriverManager.getConnection(url)) {
             if (con != null) {
                 DatabaseMetaData meta = con.getMetaData();
@@ -62,7 +63,7 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
     }
-    
+
     /**
      * Método estático "crearNuevaTabla": establece un enlace con nuestra base
      * de datos y ejecuta la secuencia sql que le indiquemos para que cree una
@@ -72,9 +73,9 @@ public class Conexion {
      */
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
-        
+
         String sql3 = "DROP TABLE IF EXISTS alumnos";
-        
+
         String sql4 = "CREATE TABLE alumnos (\n"
                 + " referencia integer PRIMARY KEY, \n"
                 + " nombre text, \n"
@@ -85,7 +86,7 @@ public class Conexion {
                 + ");";
 
         String sql = "DROP TABLE IF EXISTS paises";
-        
+
         String sql2 = "CREATE TABLE paises (\n"
                 + " id_pais integer PRIMARY KEY, \n"
                 + " nombre_pais text \n"

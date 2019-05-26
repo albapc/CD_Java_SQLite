@@ -1,4 +1,3 @@
-
 package cd_prog_proyecto_javasqlite.metodosSQL;
 
 import java.sql.SQLException;
@@ -8,7 +7,7 @@ import java.sql.SQLException;
  * @author Alba
  */
 public class Borrados {
-    
+
     /**
      * Método "delete", en este caso el usuario únicamente tiene que introducir
      * la referencia del alumno que desee eliminar, esa referencia se almacena

@@ -58,18 +58,19 @@ public class Metodos {
         }
         return true;
     }
-    
+
     /**
-     * Método de validación para las notas de los alumnos. Si el usuario introduce una nota
-     * que sea menor que 0 y mayor que 10, que salte una excepción.
-     * 
+     * Método de validación para las notas de los alumnos. Si el usuario
+     * introduce una nota que sea menor que 0 y mayor que 10, que salte una
+     * excepción.
+     *
      * @param nota nota del alumno
      * @return boolean
      */
     public static boolean validarNota(int nota) {
         return (nota <= 10 && nota >= 1);
     }
-    
+
     /**
      * Método que cuenta el número de filas que coinciden con la referencia
      * introducida por teclado para saber si ya existe esa referencia en la base
