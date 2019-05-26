@@ -1,4 +1,4 @@
-package cd_proyecto_javasqlite;
+package cd_prog_proyecto_javasqlite.objectosTablas;
 
 /**
  *
@@ -20,10 +20,10 @@ public class Alumno {
     /**
      * Constructor con parámetros
      *
-     * @param referencia
-     * @param nombre
-     * @param nota
-     * @param id_pais
+     * @param referencia referencia del alumno
+     * @param nombre nombre del alumno
+     * @param nota nota del alumno
+     * @param id_pais id del pais del alumno
      */
     public Alumno(int referencia, String nombre, int nota, int id_pais) {
         this.referencia = referencia;
@@ -44,7 +44,7 @@ public class Alumno {
     /**
      * Setter de referencia
      *
-     * @param referencia
+     * @param referencia referencia del alumno
      */
     public void setReferencia(int referencia) {
         this.referencia = referencia;
@@ -62,7 +62,7 @@ public class Alumno {
     /**
      * Setter de nombre
      *
-     * @param nombre
+     * @param nombre nombre del laumno
      */
     public void setNombre(String nombre) {
         this.nombre = nombre;
@@ -80,7 +80,7 @@ public class Alumno {
     /**
      * Setter de nota
      *
-     * @param nota
+     * @param nota nota del alumno
      */
     public void setNota(int nota) {
         this.nota = nota;
@@ -98,14 +98,10 @@ public class Alumno {
     /**
      * Setter de id_pais
      *
-     * @param id_pais
+     * @param id_pais id del pais del alumno
      */
     public void setId_pais(int id_pais) {
         this.id_pais = id_pais;
     }
 
-    @Override
-    public String toString() {
-        return "Alumno{" + "referencia=" + referencia + ", nombre=" + nombre + ", nota=" + nota + ", id_pais=" + id_pais + '}';
-    }
 }

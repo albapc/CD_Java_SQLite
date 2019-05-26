@@ -1,4 +1,4 @@
-package cd_proyecto_javasqlite;
+package cd_prog_proyecto_javasqlite.metodosSQL;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
@@ -41,13 +41,13 @@ public class Conexion {
             System.out.println("ERROR DE CONEXION ---> " + ex);
             System.out.println(conectado);
         }
-        return con;
+        return con; 
     }
 
     /**
      * Método para crear una nueva base de datos, introduciendo el nombre de esta
      * 
-     * @param nombreBD
+     * @param nombreBD nombre de la base de datos a crear
      */
     public static void crearNuevaBD(String nombreBD) {
         String url = "jdbc:sqlite:" + nombreBD;
@@ -58,7 +58,6 @@ public class Conexion {
                 System.out.println("El nombre del driver es " + meta.getDriverName());
                 System.out.println("Se ha creado una nueva base de datos.");
             }
- 
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -73,18 +72,31 @@ public class Conexion {
      */
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
+        
+        String sql3 = "DROP TABLE IF EXISTS alumnos";
+        
+        String sql4 = "CREATE TABLE alumnos (\n"
+                + " referencia integer PRIMARY KEY, \n"
+                + " nombre text, \n"
+                + " nota integer, \n"
+                + " id_pais integer NOT NULL, \n"
+                + " FOREIGN KEY (id_pais) \n"
+                + " REFERENCES paises(id_pais) \n"
+                + ");";
 
-        String sql = "CREATE TABLE paises (\n"
+        String sql = "DROP TABLE IF EXISTS paises";
+        
+        String sql2 = "CREATE TABLE paises (\n"
                 + " id_pais integer PRIMARY KEY, \n"
                 + " nombre_pais text \n"
                 + ");";
 
-        String sql2 = "DROP TABLE IF EXISTS paises";
-
         try (Connection conn = DriverManager.getConnection(url);
                 Statement stmt = conn.createStatement()) {
-            stmt.execute(sql2);
             stmt.execute(sql);
+            stmt.execute(sql2);
+            stmt.execute(sql3);
+            stmt.execute(sql4);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
