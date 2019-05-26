@@ -921,7 +921,7 @@ public class Paleta extends javax.swing.JFrame {
 
     /**
      * Borra el contenido de la tabla paises
-     */
+     */ 
     public void limpiarTablaPaises() {
         try {
             DefaultTableModel dtm = (DefaultTableModel) tablaPaises.getModel();

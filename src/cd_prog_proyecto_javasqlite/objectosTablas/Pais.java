@@ -9,7 +9,7 @@ public class Pais {
     private int id_pais;
     private String nombre_pais;
 
-    /**
+    /** 
      * Constructor por defecto
      */
     public Pais() {

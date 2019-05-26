@@ -8,7 +8,7 @@ import java.sql.SQLException;
  */
 public class Actualizaciones {
 
-    /**
+    /** 
      * En este método el usuario puede actualizar todas las filas de la tabla
      * que desee introduciendo la referencia del alumno y a continuación los
      * nuevos datos actualizados. En caso de error saltaría una excepción con el

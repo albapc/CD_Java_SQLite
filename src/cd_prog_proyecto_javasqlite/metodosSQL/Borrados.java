@@ -8,7 +8,7 @@ import java.sql.SQLException;
  */
 public class Borrados {
 
-    /**
+    /** 
      * Método "delete", en este caso el usuario únicamente tiene que introducir
      * la referencia del alumno que desee eliminar, esa referencia se almacena
      * en la variable "referencia", la cual se acopla a la declaración SQL que

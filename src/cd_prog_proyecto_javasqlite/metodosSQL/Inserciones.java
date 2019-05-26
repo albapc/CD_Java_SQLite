@@ -9,7 +9,7 @@ import java.sql.SQLIntegrityConstraintViolationException;
  */
 public class Inserciones {
 
-    /**
+    /** 
      * Método "insert": Como su nombre indica, el usuario puede insertar una
      * nueva fila en la tabla que se indique en la declaración SQL con sus
      * parámetros. En el caso de que la primary key (es decir, la referencia) ya

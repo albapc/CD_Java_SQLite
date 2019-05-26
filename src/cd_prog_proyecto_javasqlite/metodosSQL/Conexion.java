@@ -17,7 +17,7 @@ public class Conexion {
     static Statement s = null;
     static ResultSet rs = null;
 
-    /**
+    /** 
      * Método conectar, mediante el cual establecemos la conexión que servirá de
      * enlace entre la base de datos y nuestro programa. Si la conexión ha sido
      * un éxito, saltará un mensaje conforme se ha establecido la conexión y un

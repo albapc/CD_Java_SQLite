@@ -11,7 +11,7 @@ import java.util.ArrayList;
  */
 public class Consultas {
 
-    /**
+    /** 
      * Método "selectAlumnos", que realiza una consulta de toda la tabla de
      * alumnos y almacena los resultados en un ArrayList de tipo "Alumno". Este
      * método devuelve dicho array. De ocurrir algún error saltaría una

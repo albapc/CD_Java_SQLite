@@ -11,7 +11,7 @@ public class Alumno {
     private int nota;
     private int id_pais;
 
-    /**
+    /** 
      * Constructor por defecto
      */
     public Alumno() {
