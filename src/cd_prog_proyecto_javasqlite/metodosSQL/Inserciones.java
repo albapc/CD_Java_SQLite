@@ -13,8 +13,7 @@ public class Inserciones {
      * Método "insert": Como su nombre indica, el usuario puede insertar una
      * nueva fila en la tabla que se indique en la declaración SQL con sus
      * parámetros. En el caso de que la primary key (es decir, la referencia) ya
-     * exista en la base de datos, saltará una excepción e instará al usuario a
-     * introducir los parámetros de nuevo
+     * exista en la base de datos, saltará una excepción.
      *
      * @param referencia referencia del alumno
      * @param nombre nombre del alumno
@@ -23,6 +22,7 @@ public class Inserciones {
      */
     public void insert(int referencia, String nombre, int nota, int id_pais) {
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -31,6 +31,8 @@ public class Inserciones {
             System.out.println("ERROR CLAVE REPETIDA ---> " + ex);
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
     }
 }

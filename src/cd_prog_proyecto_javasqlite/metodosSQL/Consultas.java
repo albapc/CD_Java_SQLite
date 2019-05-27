@@ -11,17 +11,18 @@ import java.util.ArrayList;
  */
 public class Consultas {
 
-    /** 
+    /**
      * Método "selectAlumnos", que realiza una consulta de toda la tabla de
      * alumnos y almacena los resultados en un ArrayList de tipo "Alumno". Este
      * método devuelve dicho array. De ocurrir algún error saltaría una
      * excepción con un mensaje de error.
      *
-     * @return aux 
+     * @return aux
      */
     public ArrayList selectAlumnos() {
         ArrayList<Alumno> aux = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -35,6 +36,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return aux;
     }
@@ -50,6 +53,7 @@ public class Consultas {
     public ArrayList selectPaises() {
         ArrayList<Pais> pa = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -61,6 +65,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return pa;
     }
@@ -76,6 +82,7 @@ public class Consultas {
     public ArrayList selectReferencia(int referencia) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -89,6 +96,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return aux;
     }
@@ -104,6 +113,7 @@ public class Consultas {
     public ArrayList selectNombre(String nombre) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -117,6 +127,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return aux;
     }
@@ -132,6 +144,7 @@ public class Consultas {
     public ArrayList selectNota(int nota) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -145,6 +158,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return aux;
     }
@@ -160,6 +175,7 @@ public class Consultas {
     public ArrayList selectId_pais(int id_pais) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -173,6 +189,8 @@ public class Consultas {
             }
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            Conexion.desconectar();
         }
         return aux;
     }

@@ -8,19 +8,21 @@ import java.sql.SQLException;
  */
 public class Actualizaciones {
 
-    /** 
+    /**
      * En este método el usuario puede actualizar todas las filas de la tabla
      * que desee introduciendo la referencia del alumno y a continuación los
      * nuevos datos actualizados. En caso de error saltaría una excepción con el
      * mensaje de error.
      *
-     * @param nombre: nombre del alumno
-     * @param nota: nota del alumno
-     * @param referencia: referencia del alumno
-     * @param id_pais: id del pais del alumno
+     * @param nombre nombre del alumno
+     * @param nota nota del alumno
+     * @param referencia referencia del alumno
+     * @param id_pais id del pais del alumno
      */
     public void updateAll(String nombre, int nota, int referencia, int id_pais) {
         try {
+            //Conectar con la base de datos
+            Conexion.conectar();
 //            //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
 //            //Ejecutar consulta
@@ -28,6 +30,9 @@ public class Actualizaciones {
                     + ",id_pais=" + id_pais + " where referencia=" + referencia);
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            //Desconectar de la base de datos
+            Conexion.desconectar();
         }
     }
 
@@ -36,17 +41,22 @@ public class Actualizaciones {
      * desee introduciendo la referencia del alumno y a continuación el nuevo
      * nombre. En caso de error saltaría una excepción con el mensaje de error.
      *
-     * @param nombre: nombre del alumno
-     * @param referencia: referencia del alumno
+     * @param nombre nombre del alumno
+     * @param referencia referencia del alumno
      */
     public void updateNombre(String nombre, int referencia) {
         try {
+            //Conectar con la base de datos
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
 //            //Ejecutar consulta
             Conexion.s.executeUpdate("update alumnos set nombre='" + nombre + "' where referencia=" + referencia);
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            //Desconectar de la base de datos
+            Conexion.desconectar();
         }
     }
 
@@ -55,17 +65,22 @@ public class Actualizaciones {
      * desee introduciendo la referencia del alumno y a continuación la nueva
      * nota. En caso de error saltaría una excepción con el mensaje de error.
      *
-     * @param nota: nota del alumno
-     * @param referencia: referencia del alumno
+     * @param nota nota del alumno
+     * @param referencia referencia del alumno
      */
     public void updateNota(int nota, int referencia) {
         try {
+            //Conectar con la base de datos
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
 //            //Ejecutar consulta
             Conexion.s.executeUpdate("update alumnos set nota=" + nota + " where referencia=" + referencia);
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            //Desconectar de la base de datos
+            Conexion.desconectar();
         }
     }
 
@@ -75,17 +90,22 @@ public class Actualizaciones {
      * del pais. En caso de error saltaría una excepción con el mensaje de
      * error.
      *
-     * @param id_pais: id del pais del alumno
-     * @param referencia: referencia del alumno
+     * @param id_pais id del pais del alumno
+     * @param referencia referencia del alumno
      */
-    public void updateId_Pais(int id_pais, int referencia) {
+    public void updateId_Pais(int id_pais, int referencia) { 
         try {
+            //Conectar con la base de datos
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
 //            //Ejecutar consulta
-            Conexion.s.executeUpdate("update alumnos set id_pais='" + id_pais + " where referencia=" + referencia);
+            Conexion.s.executeUpdate("update alumnos set id_pais=" + id_pais + " where referencia=" + referencia);
         } catch (SQLException ex) {
             System.out.println("ERROR ---> " + ex);
+        } finally {
+            //Desconectar de la base de datos
+            Conexion.desconectar();
         }
     }
 }

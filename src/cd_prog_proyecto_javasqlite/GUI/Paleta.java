@@ -442,7 +442,7 @@ public class Paleta extends javax.swing.JFrame {
                         .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(bAceptar)
                             .addComponent(bVolver))
@@ -482,7 +482,7 @@ public class Paleta extends javax.swing.JFrame {
             }
         } catch (NumberFormatException nfe) {
             jTextArea1.setText("ERROR: Introduzca solo numeros.");
-        }
+        } 
     }//GEN-LAST:event_bInsertActionPerformed
 
     private void bSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelectAllActionPerformed
@@ -990,7 +990,7 @@ public class Paleta extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Paleta.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        Conexion.conectar();
+//        Conexion.conectar();
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {

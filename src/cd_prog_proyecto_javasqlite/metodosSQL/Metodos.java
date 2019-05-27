@@ -44,6 +44,7 @@ public class Metodos {
     public static boolean validarPais(int id_pais) {
         int cont = 0;
         try {
+            Conexion.conectar();
             Conexion.s = Conexion.con.createStatement();
             Conexion.rs = Conexion.s.executeQuery("select count(*) from paises where id_pais=" + id_pais);
             if (Conexion.rs.next()) {
@@ -55,6 +56,8 @@ public class Metodos {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            Conexion.desconectar();
         }
         return true;
     }
@@ -84,6 +87,7 @@ public class Metodos {
         //Variable para almacenar nº de coincidencias
         int cont = 0;
         try {
+            Conexion.conectar();
             Conexion.s = Conexion.con.createStatement();
             Conexion.rs = Conexion.s.executeQuery("select count(*) from alumnos where referencia=" + referencia);
             if (Conexion.rs.next()) {
@@ -91,6 +95,8 @@ public class Metodos {
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
+        } finally {
+            Conexion.desconectar();
         }
         return cont;
     }

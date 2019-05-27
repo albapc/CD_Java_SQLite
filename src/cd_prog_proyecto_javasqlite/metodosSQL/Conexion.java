@@ -17,7 +17,34 @@ public class Conexion {
     static Statement s = null;
     static ResultSet rs = null;
 
-    /** 
+    /**
+     * Constructor por defecto
+     */
+    public Conexion() {
+        
+    }
+    
+    /**
+     * Constructor para crear una nueva base de datos, introduciendo el nombre de
+     * esta
+     *
+     * @param nombreBD nombre de la base de datos a crear
+     */
+    public Conexion(String nombreBD) {
+        String url = "jdbc:sqlite:" + nombreBD;
+
+        try (Connection con = DriverManager.getConnection(url)) {
+            if (con != null) {
+                DatabaseMetaData meta = con.getMetaData();
+                System.out.println("El nombre del driver es " + meta.getDriverName());
+                System.out.println("Se ha creado una nueva base de datos.");
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+    }
+    
+    /**
      * Método conectar, mediante el cual establecemos la conexión que servirá de
      * enlace entre la base de datos y nuestro programa. Si la conexión ha sido
      * un éxito, saltará un mensaje conforme se ha establecido la conexión y un
@@ -45,22 +72,37 @@ public class Conexion {
     }
 
     /**
-     * Método para crear una nueva base de datos, introduciendo el nombre de
-     * esta
-     *
-     * @param nombreBD nombre de la base de datos a crear
+     * Método desconectar, mediante el cual el usuario puede desconectarse de la base de
+     * datos cada vez que se utilice. Devuelve un mensaje de confirmación y "false" si la desconexión
+     * ha sido un éxito. Podría incorporarse el cuerpo del método a cada consulta que se haga
+     * pero con esta práctica se ahorra la repetición del código.
      */
-    public static void crearNuevaBD(String nombreBD) {
-        String url = "jdbc:sqlite:" + nombreBD;
-
-        try (Connection con = DriverManager.getConnection(url)) {
-            if (con != null) {
-                DatabaseMetaData meta = con.getMetaData();
-                System.out.println("El nombre del driver es " + meta.getDriverName());
-                System.out.println("Se ha creado una nueva base de datos.");
+    public static void desconectar() {
+        boolean conectado;
+        
+        if (rs != null) {
+            try {
+                rs.close();
+            } catch (SQLException ex) {
+                System.out.println("ERROR ---> " + ex);
             }
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        }
+        if (s != null) {
+            try {
+                s.close();
+            } catch (SQLException ex) {
+                System.out.println("ERROR ---> " + ex);
+            }
+        }
+        if(con != null) {
+            try {
+                con.close();
+                conectado = false;
+                System.out.println("Desconexión del servidor.");
+                System.out.println(conectado);
+            } catch(SQLException ex) {
+                System.out.println("ERROR ---> " + ex);
+            }
         }
     }
 
@@ -73,9 +115,9 @@ public class Conexion {
      */
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
-        
+
         String sql = "DROP TABLE IF EXISTS paises";
-        
+
         String sql2 = "CREATE TABLE paises (\n"
                 + " id_pais integer PRIMARY KEY, \n"
                 + " nombre_pais text \n"
