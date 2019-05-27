@@ -73,6 +73,13 @@ public class Conexion {
      */
     public static void crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
+        
+        String sql = "DROP TABLE IF EXISTS paises";
+        
+        String sql2 = "CREATE TABLE paises (\n"
+                + " id_pais integer PRIMARY KEY, \n"
+                + " nombre_pais text \n"
+                + ");";
 
         String sql3 = "DROP TABLE IF EXISTS alumnos";
 
@@ -83,13 +90,6 @@ public class Conexion {
                 + " id_pais integer NOT NULL, \n"
                 + " FOREIGN KEY (id_pais) \n"
                 + " REFERENCES paises(id_pais) \n"
-                + ");";
-
-        String sql = "DROP TABLE IF EXISTS paises";
-
-        String sql2 = "CREATE TABLE paises (\n"
-                + " id_pais integer PRIMARY KEY, \n"
-                + " nombre_pais text \n"
                 + ");";
 
         try (Connection conn = DriverManager.getConnection(url);
