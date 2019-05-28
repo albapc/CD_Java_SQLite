@@ -24,7 +24,9 @@ public class Inserciones {
     public int insert(int referencia, String nombre, int nota, int id_pais) {
         int filas = 0;
         try {
-            Conexion.conectar();
+            if(Conexion.con != null) {
+                Conexion.con = Conexion.conectar();
+            }
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -35,7 +37,9 @@ public class Inserciones {
             System.out.println("ERROR ---> " + ex);
         } finally {
             Conexion.desconectar();
+            
         }
         return filas;
     }
 }
+

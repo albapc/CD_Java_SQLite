@@ -22,7 +22,9 @@ public class Borrados {
         int filas = 0;
         try {
             //Conectar con la base de datos
-            Conexion.conectar();
+            if(Conexion.con != null) {
+                Conexion.con = Conexion.conectar();
+            }
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta

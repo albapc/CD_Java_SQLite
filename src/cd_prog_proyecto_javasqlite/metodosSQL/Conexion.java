@@ -61,9 +61,8 @@ public class Conexion {
             //Conectar a la base de datos SQLite
             con = DriverManager.getConnection("jdbc:sqlite:alumnos.db");
             //Confirmamos conexion
-            System.out.println("Conexión establecida con el servidor.");
             conectado = true;
-            System.out.println(conectado);
+            System.out.println("Conexión establecida con el servidor: " + conectado);
         } catch (ClassNotFoundException | SQLException ex) {
             System.out.println("ERROR DE CONEXION ---> " + ex);
             System.out.println(conectado);
@@ -79,7 +78,7 @@ public class Conexion {
      * esta práctica se ahorra la repetición del código.
      */
     public static void desconectar() {
-        boolean conectado;
+        boolean conectado = false;
 
         if (rs != null) {
             try {
@@ -99,12 +98,11 @@ public class Conexion {
             try {
                 con.close();
                 conectado = false;
-                System.out.println("Desconexión del servidor.");
-                System.out.println(conectado);
             } catch (SQLException ex) {
                 System.out.println("ERROR ---> " + ex);
             }
         }
+        System.out.println("Desconexión del servidor: " + conectado);
     }
 
     /**
