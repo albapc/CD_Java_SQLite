@@ -21,12 +21,12 @@ public class Conexion {
      * Constructor por defecto
      */
     public Conexion() {
-        
+
     }
-    
+
     /**
-     * Constructor para crear una nueva base de datos, introduciendo el nombre de
-     * esta
+     * Constructor para crear una nueva base de datos, introduciendo el nombre
+     * de esta
      *
      * @param nombreBD nombre de la base de datos a crear
      */
@@ -43,7 +43,7 @@ public class Conexion {
             System.out.println(e.getMessage());
         }
     }
-    
+
     /**
      * Método conectar, mediante el cual establecemos la conexión que servirá de
      * enlace entre la base de datos y nuestro programa. Si la conexión ha sido
@@ -72,14 +72,15 @@ public class Conexion {
     }
 
     /**
-     * Método desconectar, mediante el cual el usuario puede desconectarse de la base de
-     * datos cada vez que se utilice. Devuelve un mensaje de confirmación y "false" si la desconexión
-     * ha sido un éxito. Podría incorporarse el cuerpo del método a cada consulta que se haga
-     * pero con esta práctica se ahorra la repetición del código.
+     * Método desconectar, mediante el cual el usuario puede desconectarse de la
+     * base de datos cada vez que se utilice. Devuelve un mensaje de
+     * confirmación y "false" si la desconexión ha sido un éxito. Podría
+     * incorporarse el cuerpo del método a cada consulta que se haga pero con
+     * esta práctica se ahorra la repetición del código.
      */
     public static void desconectar() {
         boolean conectado;
-        
+
         if (rs != null) {
             try {
                 rs.close();
@@ -94,13 +95,13 @@ public class Conexion {
                 System.out.println("ERROR ---> " + ex);
             }
         }
-        if(con != null) {
+        if (con != null) {
             try {
                 con.close();
                 conectado = false;
                 System.out.println("Desconexión del servidor.");
                 System.out.println(conectado);
-            } catch(SQLException ex) {
+            } catch (SQLException ex) {
                 System.out.println("ERROR ---> " + ex);
             }
         }

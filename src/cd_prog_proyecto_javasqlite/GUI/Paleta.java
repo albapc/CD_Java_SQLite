@@ -471,13 +471,13 @@ public class Paleta extends javax.swing.JFrame {
             } else if (cont > 0) {
                 jTextArea1.setText("Ya existe un alumno con esa referencia");
             } else {
-                ins.insert(Integer.parseInt(cTexto5.getText()), cTexto6.getText(), Integer.parseInt(cTexto7.getText()), Integer.parseInt(cTexto8.getText()));
-                jTextArea1.setText("Se ha añadido 1 fila");
+                int resultados = ins.insert(Integer.parseInt(cTexto5.getText()), cTexto6.getText(), Integer.parseInt(cTexto7.getText()), Integer.parseInt(cTexto8.getText()));
+                jTextArea1.setText("Se ha(n) añadido " + resultados + " fila(s)");
                 actualizarTablaAlumnos();
             }
         } catch (NumberFormatException nfe) {
             jTextArea1.setText("ERROR: Introduzca solo numeros.");
-        } 
+        }
     }//GEN-LAST:event_bInsertActionPerformed
 
     private void bSelectAllActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSelectAllActionPerformed
@@ -524,8 +524,8 @@ public class Paleta extends javax.swing.JFrame {
             } else if (cont == 0) {
                 jTextArea1.setText("No existe ningún alumno con esa referencia");
             } else {
-                del.delete(Integer.parseInt(cTexto5.getText()));
-                jTextArea1.setText("Se ha(n) eliminado " + cont + " fila(s)");
+                int resultados = del.delete(Integer.parseInt(cTexto5.getText()));
+                jTextArea1.setText("Se ha(n) eliminado " + resultados + " fila(s)");
                 actualizarTablaAlumnos();
             }
         } catch (NumberFormatException nfe) {
@@ -832,8 +832,8 @@ public class Paleta extends javax.swing.JFrame {
                     jTextArea1.setText("No existe esa referencia");
                 } else {
                     card.show(getContentPane(), "card1"); //muestra la primera ventana
-                    upd.updateNombre(cTexto2.getText(), Integer.parseInt(cTexto1.getText()));
-                    jTextArea1.setText("Se ha(n) actualizado " + cont + " fila(s).");
+                    int resultados = upd.updateNombre(cTexto2.getText(), Integer.parseInt(cTexto1.getText()));
+                    jTextArea1.setText("Se ha(n) actualizado " + resultados + " fila(s).");
                     actualizarTablaAlumnos();
                 }
 
@@ -850,8 +850,8 @@ public class Paleta extends javax.swing.JFrame {
                         jTextArea1.setText("No existe esa referencia");
                     } else {
                         card.show(getContentPane(), "card1"); //muestra la primera ventana
-                        upd.updateNota(Integer.parseInt(cTexto3.getText()), Integer.parseInt(cTexto1.getText()));
-                        jTextArea1.setText("Se ha(n) actualizado " + cont + " fila(s).");
+                        int resultados = upd.updateNota(Integer.parseInt(cTexto3.getText()), Integer.parseInt(cTexto1.getText()));
+                        jTextArea1.setText("Se ha(n) actualizado " + resultados + " fila(s).");
                         actualizarTablaAlumnos();
                     }
                 } catch (NumberFormatException nfe) {
@@ -872,8 +872,8 @@ public class Paleta extends javax.swing.JFrame {
                         jTextArea1.setText("No existe esa referencia");
                     } else {
                         card.show(getContentPane(), "card1"); //muestra la primera ventana
-                        upd.updateId_Pais(Integer.parseInt(cTexto4.getText()), Integer.parseInt(cTexto1.getText()));
-                        jTextArea1.setText("Se ha(n) actualizado " + cont + " fila(s).");
+                        int resultados = upd.updateId_Pais(Integer.parseInt(cTexto4.getText()), Integer.parseInt(cTexto1.getText()));
+                        jTextArea1.setText("Se ha(n) actualizado " + resultados + " fila(s).");
                         actualizarTablaAlumnos();
                     }
                 } catch (NumberFormatException nfe) {
@@ -897,8 +897,8 @@ public class Paleta extends javax.swing.JFrame {
                         jTextArea1.setText("No existe esa referencia");
                     } else {
                         card.show(getContentPane(), "card1"); //muestra la primera ventana
-                        upd.updateAll(cTexto2.getText(), Integer.parseInt(cTexto3.getText()), Integer.parseInt(cTexto1.getText()), Integer.parseInt(cTexto4.getText()));
-                        jTextArea1.setText("Se ha(n) actualizado " + cont + " fila(s).");
+                        int resultados = upd.updateAll(cTexto2.getText(), Integer.parseInt(cTexto3.getText()), Integer.parseInt(cTexto1.getText()), Integer.parseInt(cTexto4.getText()));
+                        jTextArea1.setText("Se ha(n) actualizado " + resultados + " fila(s).");
                         actualizarTablaAlumnos();
                     }
                 } catch (NumberFormatException nfe) {

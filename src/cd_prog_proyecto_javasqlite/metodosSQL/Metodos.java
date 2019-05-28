@@ -62,7 +62,7 @@ public class Metodos {
         return true;
     }
 
-    /** 
+    /**
      * Método de validación para las notas de los alumnos. Si el usuario
      * introduce una nota que sea menor que 0 y mayor que 10, que salte una
      * excepción.
