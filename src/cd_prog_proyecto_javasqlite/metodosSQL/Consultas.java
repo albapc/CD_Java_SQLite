@@ -53,9 +53,7 @@ public class Consultas {
     public ArrayList selectPaises() {
         ArrayList<Pais> pa = new ArrayList();
         try {
-            if(Conexion.con != null) {
-                Conexion.con = Conexion.conectar();
-            }
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -84,9 +82,7 @@ public class Consultas {
     public ArrayList selectReferencia(int referencia) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
-            if(Conexion.con != null) {
-                Conexion.con = Conexion.conectar();
-            }
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -117,9 +113,7 @@ public class Consultas {
     public ArrayList selectNombre(String nombre) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
-            if(Conexion.con != null) {
-                Conexion.con = Conexion.conectar();
-            }
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -150,9 +144,7 @@ public class Consultas {
     public ArrayList selectNota(int nota) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
-            if(Conexion.con != null) {
-                Conexion.con = Conexion.conectar();
-            }
+            Conexion.con = Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
@@ -183,9 +175,7 @@ public class Consultas {
     public ArrayList selectId_pais(int id_pais) {
         ArrayList<Alumno> aux = new ArrayList();
         try {
-            if(Conexion.con != null) {
-                Conexion.con = Conexion.conectar();
-            }
+            Conexion.con = Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta
