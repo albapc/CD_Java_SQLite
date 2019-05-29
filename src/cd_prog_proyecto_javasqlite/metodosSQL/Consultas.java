@@ -22,7 +22,7 @@ public class Consultas {
     public ArrayList selectAlumnos() {
         ArrayList<Alumno> aux = new ArrayList();
         try {
-                Conexion.conectar();
+            Conexion.conectar();
             //Declarar consulta
             Conexion.s = Conexion.con.createStatement();
             //Ejecutar consulta

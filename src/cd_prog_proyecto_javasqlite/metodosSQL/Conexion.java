@@ -76,8 +76,9 @@ public class Conexion {
      * confirmación y "false" si la desconexión ha sido un éxito. Podría
      * incorporarse el cuerpo del método a cada consulta que se haga pero con
      * esta práctica se ahorra la repetición del código.
+     * @return con
      */
-    public static void desconectar() {
+    public static Connection desconectar() {
         boolean conectado = false;
 
         if (rs != null) {
@@ -103,6 +104,7 @@ public class Conexion {
             }
         }
         System.out.println("Desconexión del servidor: " + conectado);
+        return con;
     }
 
     /**
@@ -111,8 +113,9 @@ public class Conexion {
      * tabla nueva con sus respectivos parámetros. Si surge un error durante la
      * conexión saltará una excepción con el mensaje de error.
      *
+     * @return url
      */
-    public static void crearNuevaTabla() {
+    public static String crearNuevaTabla() {
         String url = "jdbc:sqlite:alumnos.db";
 
         String sql = "DROP TABLE IF EXISTS paises";
@@ -142,5 +145,6 @@ public class Conexion {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
+        return url;
     }
 }
